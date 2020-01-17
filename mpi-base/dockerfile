@@ -4,21 +4,21 @@ COPY arcsimpi.py /opt/conda/bin/arcsimpi.py
 RUN chmod +rx /opt/conda/bin/arcsimpi.py
 
 # Copy in JASMIN-built mpi4py package
-RUN mkdir /app/local
+RUN mkdir -p /app/local
 COPY site-packages /app/local/site-packages
 ENV PYTHONPATH ${PYTHONPATH}:/app/local/site-packages
 
 # Make dir to bind platform MPI files on JASMIN
-RUN mkdir /opt/platform_mpi
+RUN mkdir -p /opt/platform_mpi
 ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/opt/platform_mpi/lib/linux_amd64
 
 ENV MPI_WORKDIR /data
 
 # Make mount points
-RUN mkdir /input && \
-    mkdir /output && \
-    mkdir /working && \
-    mkdir /state && \
-    mkdir /static
+RUN mkdir -p /input && \
+    mkdir -p /output && \
+    mkdir -p /working && \
+    mkdir -p /state && \
+    mkdir -p /static
 
 
