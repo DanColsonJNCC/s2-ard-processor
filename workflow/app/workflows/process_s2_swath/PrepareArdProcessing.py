@@ -23,6 +23,7 @@ class PrepareArdProcessing(luigi.Task):
     outWkt = luigi.OptionalParameter(default = None)
     projAbbv = luigi.OptionalParameter(default = None)
     arcsiCmdTemplate = luigi.Parameter()
+    taskId = luigi.OptionalParameter(default = None)
 
     def getExpectedProductFilePatterns(self, outDir, satelliteAndOrbitNoOutput, swathInfo):
         expectedProducts = {
